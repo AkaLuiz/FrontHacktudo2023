@@ -8,28 +8,9 @@ import axios from 'axios';
 
 function App() {
 
-  //modelo
-  const produtoModelo ={
-    id: 0,
-    nome: '',
-    descricao: '',
-    preco: 0,
-    categoria_id: 2,
-    usuario_id: 1,
-    filtros: {
-      cor: '',
-      anosDeUso: ''
-    },
-    vendido: 0,
-    troca: 1,
-    imagem_url:''
-  }
-
   //UseState
   const[produtos, setProdutos] = useState([]);
-  const[produto, setProduto] = useState(produtoModelo)
 
-  setProduto({...produto, nome:nome})
   //useEffect
   useEffect(()=>{
     axios.get('http://localhost:3333/produto')
@@ -38,14 +19,18 @@ function App() {
     });
   }, [])
 
+    
   
   return (
+    <>
+    
     <Router>
       <Routes>
         <Route path="/" element={<TelaInicial vetor={produtos} />}></Route>
-        <Route path="/produto/:id" element={<TelaProduto vetor={produtos} produto={produto} />}></Route>
+        <Route path="/produto/:id" element={<TelaProduto vetor={produtos} />}></Route>
       </Routes>
     </Router>
+    </>
   );
 }
 

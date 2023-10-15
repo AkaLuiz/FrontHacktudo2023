@@ -129,8 +129,6 @@ function TelaInicial({ vetor }) {
 
             </section>
 
-            <TelaTrocaForm/>
-
         </div>
     );
 }
