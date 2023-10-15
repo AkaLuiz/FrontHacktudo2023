@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
-import TelaTrocaForm from '../telaTrocaForm/index'
+import TelaFiltros from '../telaFiltros/index';
+import TelaTrocaForm from '../telaTrocaForm/index';
 import img from '../resources/images/olx-104.png';
 
 function TelaInicial({ vetor }) {
 
+    
+    
     return (
         <div>
             <hr></hr>
@@ -17,14 +20,7 @@ function TelaInicial({ vetor }) {
                     <input type='text' className='buscar' placeholder='Buscar por produtos'></input>
                 </div>
 
-                <div>
-                    <label>Filtros</label>
-                    <select>
-                        <option>-2 anos de uso</option>
-                        <option>-1 anos de uso</option>
-                        <option>+3 anos de uso</option>
-                    </select>
-                </div>
+                <TelaFiltros/>
 
                 <nav>
                     <a className="bi bi-suitcase-lg-fill a" href="#"> Plano profissional</a>
@@ -49,20 +45,23 @@ function TelaInicial({ vetor }) {
 
                     {
                         vetor.map((obj, indice) => (
-                            <div key={indice}>
+                            <a href={'http://localhost:3000/produto/'+obj.id} key={indice}>
                                 <div>
-                                    <img src={img}></img>
-                                    <p>{obj.nome}</p>
+                                    <div className='imgMeio'>
+                                        <img className='img' src={obj.imagem_url}></img>
+                                    </div>
+                                    <p className='p'>R$: {obj.preco}</p>
+                                    <p className='p'>{obj.nome}</p>     
                                 </div>
                                 <div>
-                                    <p className='tag'>{obj.filtros[0]}</p>
+                                    <p className='tag'>{obj.filtros.anosDeUso}</p>
 
                                     {
-                                    obj.filtros[1] &&
-                                    <p className='tag'>{obj.filtros[1]}</p>
+                                    obj.filtros.cor &&
+                                    <p className='tag'>{obj.filtros.cor}</p>
                                     }       
                                 </div>
-                            </div>
+                            </a>
                         ))
                     }
 
@@ -75,25 +74,27 @@ function TelaInicial({ vetor }) {
                 <h2>Mais recentes</h2>
                 <div id='img-mais'>
 
-                {
+                    {
                         vetor.map((obj, indice) => (
-                            <div key={indice}>
+                            <a href={'http://localhost:3000/produto/'+obj.id} key={indice}>
                                 <div>
-                                    <img src={img}></img>
-                                    <p>{obj.nome}</p>
+                                    <div className='imgMeio'>
+                                        <img className='img' src={obj.imagem_url}></img>
+                                    </div>
+                                    <p className='p'>R$: {obj.preco}</p>
+                                    <p className='p'>{obj.nome}</p>     
                                 </div>
                                 <div>
-                                    <p className='tag'>{obj.filtros[0]}</p>
+                                    <p className='tag'>{obj.filtros.anosDeUso}</p>
 
                                     {
-                                    obj.filtros[1] &&
-                                    <p className='tag'>{obj.filtros[1]}</p>
+                                    obj.filtros.cor &&
+                                    <p className='tag'>{obj.filtros.cor}</p>
                                     }       
                                 </div>
-                            </div>
+                            </a>
                         ))
                     }
-
                 </div>
 
             </section>
@@ -103,22 +104,25 @@ function TelaInicial({ vetor }) {
                 <h2>Mais procurados em Computadores</h2>
                 <div id='img-mais'>
 
-                {
+                    {
                         vetor.map((obj, indice) => (
-                            <div key={indice}>
+                            <a href={'http://localhost:3000/produto/'+obj.id} key={indice} >
                                 <div>
-                                    <img src={img}></img>
-                                    <p>{obj.nome}</p>
+                                    <div className='imgMeio'>
+                                        <img className='img' src={obj.imagem_url}></img>
+                                    </div>
+                                    <p className='p'>R$: {obj.preco}</p>
+                                    <p className='p'>{obj.nome}</p>     
                                 </div>
                                 <div>
-                                    <p className='tag'>{obj.filtros[0]}</p>
+                                    <p className='tag'>{obj.filtros.anosDeUso}</p>
 
                                     {
-                                    obj.filtros[1] &&
-                                    <p className='tag'>{obj.filtros[1]}</p>
+                                    obj.filtros.cor &&
+                                    <p className='tag'>{obj.filtros.cor}</p>
                                     }       
                                 </div>
-                            </div>
+                            </a>
                         ))
                     }
                 </div>

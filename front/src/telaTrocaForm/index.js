@@ -13,9 +13,7 @@ function TelaTrocaForm() {
     return (
         <>
 
-            <button onClick={toggleModal} className="btn-modal">
-                Trocar
-            </button>
+            <button onClick={toggleModal} className="bi bi-arrow-left-right botaoTrocar"> Trocar</button>
 
             {modal && (
                 <ReactModal

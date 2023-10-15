@@ -1,0 +1,13 @@
+.buttonFiltros{
+    border: 0;
+    background-color: transparent;
+}
+
+.buttonFiltros:hover{
+    transition: 200ms;
+    color:purple
+}
+
+.form > div > label{
+    margin-left: 5px;
+}
